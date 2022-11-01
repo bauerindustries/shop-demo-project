@@ -1,0 +1,26 @@
+{
+  "name": "shop-demo-project",
+  "version": "1.0.0",
+  "description": "mongoDB, Express and Node.js based shopping site",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bauerindustries/shop-demo-project.git"
+  },
+  "keywords": [],
+  "author": "Chris Bauer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bauerindustries/shop-demo-project/issues"
+  },
+  "homepage": "https://github.com/bauerindustries/shop-demo-project#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
