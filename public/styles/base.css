@@ -1,0 +1,8 @@
+* {
+    /* setting/getting width includes borders - non-inhertiable */
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
