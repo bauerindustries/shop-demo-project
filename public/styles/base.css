@@ -5,6 +5,7 @@
 
 html {
   font-family: 'Roboto', sans-serif;
+  
   --colour-gray-50: rgb(243, 236, 230);
   --colour-gray-100: rgb(207, 201, 195);
   --colour-gray-300: rgb(99, 92, 86);
@@ -33,6 +34,9 @@ html {
   --space-6: 1.5rem;
   --space-8: 2rem;
 
+  --width-full: 50rem;
+  --width-half: 25rem;
+
   --border-radius-small: 4px;
   --border-radius-medium: 6px;
 
@@ -49,7 +53,7 @@ body {
 
 main {
   width: 90%;
-  max-width: 50rem;
+  max-width: var(--width-full);;
   margin: 0 auto;
 }
 
@@ -68,13 +72,13 @@ a {
 .btn {
   cursor: pointer;
   font-family: inherit;
-  font-weight: 400;
   padding: var(--space-2) var(--space-6);
   background-color: var(--colour-primary-500);
   color: var(--colour-primary-500-contrast);
   border: 1px solid var(--colour-primary-500);
   border-radius: var(--border-radius-small);
   transition: var(--btn-transition);
+  font-size: inherit;
 }
 
 .btn:hover,

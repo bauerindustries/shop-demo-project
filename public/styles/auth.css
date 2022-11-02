@@ -1,0 +1,23 @@
+h1 {
+    text-align: center;
+    color: var(--colour-gray-300);
+}
+
+form {
+    max-width: var(--width-half);
+    margin: var(--space-8) auto;
+    padding: var(--space-4);
+    background-color: var(--colour-gray-600);
+    border-radius: var(--border-radius-medium);
+    text-align: center;
+}
+
+form a {
+    color: var(--colour-primary-200);
+    transition: var(--btn-transition);
+}
+form a:hover,
+form a:active {
+    color: var(--colour-primary-400);
+    transition: var(--btn-transition);
+}
