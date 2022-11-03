@@ -9,7 +9,9 @@ const db = require('./data/database');
 const errorHandlerMiddleware = require('./middleware/error-handler.middleware');
 const csrfTokenMiddleware = require('./middleware/csrf-token.middleware');
 
+const baseRoutes = require('./routes/base.routes');
 const authRoutes = require('./routes/auth.routes');
+const productsRoutes = require('./routes/products.routes');
 
 const app = express();
 
@@ -27,7 +29,9 @@ app.use(csrf());
 // custom middleware does not need to be called, unlike 3rd-party middlewares
 app.use(csrfTokenMiddleware);
 
+app.use(baseRoutes);
 app.use(authRoutes);
+app.use(productsRoutes);
 
 // error handling
 app.use(errorHandlerMiddleware);

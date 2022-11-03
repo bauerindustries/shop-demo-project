@@ -1,4 +1,5 @@
 const User = require('../models/user.model');
+const authUtil = require('../utils/authentication');
 
 function getSignup(req, res) {
   res.render('customer/auth/signup');
@@ -48,13 +49,9 @@ async function login(req, res) {
 
   console.log('user name and password match!');
 
-  // if if user exists in db
-  // check password
-  // authenticate them
-
-  // else
-  // flash session cookie with form data
-  //redirect to sign-up form
+  authUtil.createUserSession(req, existingUser, function () {
+    res.redirect('/products');
+  });
 }
 
 module.exports = {
