@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const ejs = require('ejs');
 
+const db = require('./data/database');
 const authRoutes = require('./routes/auth.routes');
 
 const app = express();
@@ -13,4 +14,12 @@ app.use(express.static('public'));
 
 app.use(authRoutes);
 
-app.listen(3000);
+// .then because connectToDatabase returns a promise
+db.connectToDatabase()
+  .then(function () {
+    app.listen(3000);
+  })
+  .catch(function (error) {
+    console.log('Failed to connect to the database');
+    console.log(error);
+  });

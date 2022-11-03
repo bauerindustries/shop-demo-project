@@ -1,6 +1,6 @@
 form hr {
     border-color: var(--colour-primary-200);
-    margin: var(--space-4)
+    margin: var(--space-8)
 }
 
 label {
