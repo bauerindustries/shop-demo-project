@@ -33,7 +33,6 @@ async function login(req, res) {
 
   if (!existingUser) {
     // flash user/pass to session
-    console.log('user does not exist!');
     res.redirect('/login');
     return;
   }
@@ -42,16 +41,18 @@ async function login(req, res) {
 
   if (!passwordCorrect) {
     // flash user/pass to session
-    console.log('password does not match!');
     res.redirect('/login');
     return;
   }
 
-  console.log('user name and password match!');
-
   authUtil.createUserSession(req, existingUser, function () {
     res.redirect('/products');
   });
+}
+
+function logout(req, res) {
+  authUtil.destroyUserAuthSession(req);
+  res.redirect('/login');
 }
 
 module.exports = {
@@ -59,4 +60,5 @@ module.exports = {
   signup: signup,
   getLogin: getLogin,
   login: login,
+  logout: logout,
 };

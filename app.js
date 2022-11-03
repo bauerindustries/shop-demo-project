@@ -1,3 +1,4 @@
+// third party
 const express = require('express');
 const path = require('path');
 const ejs = require('ejs');
@@ -6,9 +7,13 @@ const expressSession = require('express-session');
 
 const createSessionConfig = require('./config/session');
 const db = require('./data/database');
+
+// custom middleware
 const errorHandlerMiddleware = require('./middleware/error-handler.middleware');
 const csrfTokenMiddleware = require('./middleware/csrf-token.middleware');
+const checkAuthStatusMiddleware = require('./middleware/check-auth.middleware');
 
+// routes
 const baseRoutes = require('./routes/base.routes');
 const authRoutes = require('./routes/auth.routes');
 const productsRoutes = require('./routes/products.routes');
@@ -28,6 +33,8 @@ app.use(expressSession(sessionConfig));
 app.use(csrf());
 // custom middleware does not need to be called, unlike 3rd-party middlewares
 app.use(csrfTokenMiddleware);
+
+app.use(checkAuthStatusMiddleware);
 
 app.use(baseRoutes);
 app.use(authRoutes);
