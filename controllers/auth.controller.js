@@ -5,7 +5,7 @@ function getSignup(req, res) {
   res.render('customer/auth/signup');
 }
 
-async function signup(req, res) {
+async function signup(req, res, next) {
   userData = req.body;
 
   const user = new User(
@@ -16,7 +16,13 @@ async function signup(req, res) {
     userData.city,
     userData.postcode
   );
-  await user.signup();
+
+  // necessary to pass async errors to built-in error handling
+  try {
+    await user.signup();
+  } catch (error) {
+    return next(error);
+  }
 
   // convention: use redirect on POST requests, to avoid potential 'resubmit form' prompts
   res.redirect('/login');
@@ -29,7 +35,13 @@ function getLogin(req, res) {
 
 async function login(req, res) {
   const user = new User(req.body.email, req.body.password);
-  const existingUser = await user.getUserWithSameEmail();
+
+  let existingUser;
+  try {
+    existingUser = await user.getUserWithSameEmail();
+  } catch (error) {
+    return next(error);
+  }
 
   if (!existingUser) {
     // flash user/pass to session
@@ -37,7 +49,13 @@ async function login(req, res) {
     return;
   }
 
-  const passwordCorrect = await user.hasMatchingPassword(existingUser.password);
+
+let passwordCorrect;
+  try {
+    passwordCorrect = await user.hasMatchingPassword(existingUser.password);
+  } catch (error) {
+    return next(error);
+  }
 
   if (!passwordCorrect) {
     // flash user/pass to session
