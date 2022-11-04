@@ -34,6 +34,15 @@ class User {
     });
   }
 
+  async userExistsAlready() {
+    const existingUser = await this.getUserWithSameEmail();
+    console.log(existingUser);
+    if (existingUser) {
+      return true;
+    }
+    return false;
+  }
+
   hasMatchingPassword(hashedPassword) {
     // don't need await, as return deals with the promise
     return bcrypt.compare(this.password, hashedPassword);
