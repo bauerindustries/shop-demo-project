@@ -10,12 +10,12 @@
       <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
       <p>
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" />
+        <input type="email" name="email" id="email" value="<%= sessionData.email %>" required />
       </p>
 
       <p>
         <label for="confirm-email">Confirm Email</label>
-        <input type="email" name="confirm-email" id="confirm-email" />
+        <input type="email" name="confirm-email" id="confirm-email" required />
       </p>
 
       <p>
@@ -26,6 +26,7 @@
           id="password"
           minlength="6"
           required
+          value="<%= sessionData.email %>"
         />
       </p>
       <hr />

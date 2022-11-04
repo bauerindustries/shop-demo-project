@@ -1,4 +1,4 @@
-const authUtil = require('../utils/authentication');
+const authUtil = require('../utils/authentication.util');
 
 function getAllProducts(req, res) {
   res.render('customer/products/all-products');

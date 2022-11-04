@@ -1,12 +1,33 @@
 const User = require('../models/user.model');
-const authUtil = require('../utils/authentication');
-const validationUtil = require('../utils/validation');
+const authUtil = require('../utils/authentication.util');
+const validationUtil = require('../utils/validation.util');
+const sessionFlashUtil = require('../utils/session-flash.util');
 
 function getSignup(req, res) {
-  res.render('customer/auth/signup');
+  let sessionData = sessionFlashUtil.getSessionData(req);
+  if (!sessionData) {
+    sessionData = {
+      email: '',
+      password: '',
+      fullname: '',
+      street: '',
+      city: '',
+      postcode: '',
+    };
+  }
+  res.render('customer/auth/signup', { sessionData: sessionData });
 }
 
 async function signup(req, res, next) {
+  const enteredData = {
+    email: req.body.email,
+    password: req.body.password,
+    fullname: req.body.fullname,
+    street: req.body.street,
+    city: req.body.city,
+    postcode: req.body.postcode,
+  };
+
   if (
     !validationUtil.emailIsConfirmed(
       req.body.email,
@@ -22,7 +43,17 @@ async function signup(req, res, next) {
       req.body.postcode
     )
   ) {
-    res.redirect('/signup');
+    sessionFlashUtil.flashDataToSession(
+      req,
+      {
+        errorMessage: 'Please check your input and try again.',
+        // spread key/value pairs from
+        ...enteredData,
+      },
+      function () {
+        res.redirect('/signup');
+      }
+    );
     return;
   }
 
@@ -39,7 +70,17 @@ async function signup(req, res, next) {
     const existsAlready = await user.userExistsAlready();
 
     if (existsAlready) {
-      res.redirect('/signup');
+      sessionFlashUtil.flashDataToSession(
+        req,
+        {
+          errorMessage: 'User exists already - try logging in?',
+          // spread key/value pairs from
+          ...enteredData,
+        },
+        function () {
+          res.redirect('/signup');
+        }
+      );
       return;
     }
   } catch (error) {
@@ -73,9 +114,16 @@ async function login(req, res) {
     return next(error);
   }
 
+  const sessionErrorData = {
+    errorMessage: 'Please check your email and password',
+    email: user.email,
+    password: user.password,
+  };
+
   if (!existingUser) {
-    // flash user/pass to session
-    res.redirect('/login');
+    sessionFlashUtil.flashDataToSession(req, sessionErrorData, function () {
+      res.redirect('/login');
+    });
     return;
   }
 
@@ -87,8 +135,9 @@ async function login(req, res) {
   }
 
   if (!passwordCorrect) {
-    // flash user/pass to session
-    res.redirect('/login');
+    sessionFlashUtil.flashDataToSession(req, sessionErrorData, function () {
+      res.redirect('/login');
+    });
     return;
   }
 
