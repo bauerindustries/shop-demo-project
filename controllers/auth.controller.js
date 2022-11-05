@@ -8,6 +8,7 @@ function getSignup(req, res) {
   if (!sessionData) {
     sessionData = {
       email: '',
+      confirmEmail: '',
       password: '',
       fullname: '',
       street: '',
@@ -15,12 +16,13 @@ function getSignup(req, res) {
       postcode: '',
     };
   }
-  res.render('customer/auth/signup', { sessionData: sessionData });
+  res.render('customer/auth/signup', { inputData: sessionData });
 }
 
 async function signup(req, res, next) {
   const enteredData = {
     email: req.body.email,
+    confirmEmail: req.body['confirm-email'],
     password: req.body.password,
     fullname: req.body.fullname,
     street: req.body.street,
@@ -100,8 +102,17 @@ async function signup(req, res, next) {
 }
 
 function getLogin(req, res) {
+  let sessionData = sessionFlashUtil.getSessionData(req);
+
+  if (!sessionData) {
+    sessionData = {
+      email: '',
+      password: '',
+    };
+  }
+
   // check it session has login attempted details
-  res.render('customer/auth/login');
+  res.render('customer/auth/login', { inputData: sessionData });
 }
 
 async function login(req, res) {
