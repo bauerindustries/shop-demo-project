@@ -1,15 +1,14 @@
-<%- include('../../shared/includes/head', {pageTitle: 'Add product'}) %>
-<link rel="stylesheet" href="/styles/forms.css" />
+<%- include('../../shared/includes/head', {pageTitle: 'Update product'}) %> 
+<link rel="stylesheet" href="/styles/forms.css">
 <%- include('../../shared/includes/head-end') %>
 <body>
   <%- include('../../shared/includes/header') %>
   <main>
-    <h1>Add Product</h1>
+    <h1>Update Product</h1>
     <section>
       <%- include('./includes/product-form', {
-      submitPath: '/admin/products/',
-      product: product,
-      imageRequired: true}) %>
+        submitPath: '/admin/products/' + product.id,
+        imageRequired: false}) %>
     </section>
   </main>
 

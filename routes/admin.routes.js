@@ -1,5 +1,6 @@
 const express = require('express');
 const adminController = require('../controllers/admin.controller');
+const imageUploadMiddleware = require('../middleware/image-upload.middleware');
 
 const router = express.Router();
 
@@ -9,7 +10,11 @@ router.get('/products', adminController.getProducts);
 
 router.get('/products/new', adminController.getNewProduct);
 
-router.post('/products/new', adminController.addNewProduct);
+router.post('/products', imageUploadMiddleware, adminController.createNewProduct);
+
+router.get('/products/:id', imageUploadMiddleware, adminController.getUpdateProduct);
+
+router.post('/products/:id', imageUploadMiddleware, adminController.updateProduct);
 
 router.get('/products/orders', adminController.getOrders);
 
