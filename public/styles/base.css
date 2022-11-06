@@ -42,7 +42,7 @@ html {
 
   --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.2);
 
-  --btn-transition: all 100ms;
+  --btn-transition: all 150ms;
 }
 
 body {
@@ -82,11 +82,22 @@ a {
   font-size: inherit;
 }
 
+
 .btn:hover,
 .btn:active {
   background-color: var(--colour-primary-700);
   border: 1px solid var(--colour-primary-700);
   transition: var(--btn-transition);
+}
+
+.btn-alt {
+  background-color: transparent;
+  color: var(--colour-primary-500);
+}
+
+.btn-alt:hover,
+.btn-alt:active {
+  background-color: var(--colour-primary-500-bg);
 }
 
 .alert {

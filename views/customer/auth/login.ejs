@@ -1,22 +1,28 @@
 <%- include('../../shared/includes/head', {pageTitle: 'Log in'}) %>
-    <link rel="stylesheet" href="/styles/forms.css">
-    <link rel="stylesheet" href="/styles/auth.css">
-</head>
+<link rel="stylesheet" href="/styles/forms.css" />
+<link rel="stylesheet" href="/styles/auth.css" />
+<%- include('../../shared/includes/head-end') %>
 <body>
-    <%- include('../../shared/includes/header') %>
-    <main>
+  <%- include('../../shared/includes/header') %>
+  <main>
     <h1>Log in</h1>
     <form action="/login" method="POST">
-      <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+      <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
       <% if (inputData.errorMessage) { %>
-        <section class="alert">
-         <h2>Login error</h2>
-         <p><%= inputData.errorMessage %></p>
-       </section>
-       <% } %>
+      <section class="alert">
+        <h2>Login error</h2>
+        <p><%= inputData.errorMessage %></p>
+      </section>
+      <% } %>
       <p>
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" value="<%= inputData.email %>" required />
+        <input
+          type="email"
+          name="email"
+          id="email"
+          value="<%= inputData.email %>"
+          required
+        />
       </p>
 
       <p>
@@ -26,11 +32,13 @@
           name="password"
           id="password"
           minlength="6"
-          value="value="<%= inputData.password %>
-          required
+          value="value="
+          <%="inputData.password"
+          %
         />
+        required />
       </p>
-     
+
       <p><button class="btn">Log in</button></p>
       <p><a id="switch-form" href="/signup">Register</a></p>
     </form>
