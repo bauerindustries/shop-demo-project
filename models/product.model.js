@@ -92,6 +92,23 @@ class Product {
     this.image = newImage;
     this.updateImageData();
   }
+
+  async delete() {
+    const productId = new mongodb.ObjectId(this.id);
+
+    const deletedProduct = await db.getDb().collection('products').deleteOne({
+      _id: productId,
+    });
+
+    if (!deletedProduct) {
+      const error = new Error('Sorry, because of problem, the selected product could not be deleted');
+      error.code = 404;
+      throw error;
+    }
+
+    return;
+
+  }
 }
 
 module.exports = Product;

@@ -65,6 +65,20 @@ async function updateProduct(req, res, next) {
   }
 }
 
+async function deleteProduct(req, res, next) {
+  let product;
+  try {
+    product = await Product.findById(req.params.id);
+    await product.delete();
+  } catch (error) {
+    return next(error);
+  }
+
+  res.json({message: 'Deleted product'});
+  // redirecting would cause error on this async deleting
+  // res.redirect('/admin/products');
+}
+
 function getOrders(req, res, next) {
   res.render('admin/orders');
 }
@@ -75,5 +89,6 @@ module.exports = {
   createNewProduct: createNewProduct,
   getUpdateProduct: getUpdateProduct,
   updateProduct: updateProduct,
+  deleteProduct: deleteProduct,
   getOrders: getOrders,
 };
