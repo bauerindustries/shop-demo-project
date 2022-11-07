@@ -27,6 +27,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static('public'));
+// for product images paths/urls
 app.use('/products/assets/', express.static('product-data'));
 // middleware to allow data attached to requests (esp. form submission)
 app.use(express.urlencoded({ extended: false }));
