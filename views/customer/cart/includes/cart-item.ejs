@@ -1,0 +1,24 @@
+<article class="cart-item">
+  <div class="cart-item-info">
+    <h2><%= cartItem.product.title %></h2>
+    <p>
+      &pound;
+      <span class="cart-item-price">
+        <%= cartItem.totalPrice.toFixed(2) %>
+      </span>
+      <span class="cart-product-price"
+        >(&pound;<%= cartItem.product.price.toFixed(2) %>)</span
+      >
+    </p>
+  </div>
+  <form class="cart-item-management-form">
+    <input type="number" value="<%= cartItem.quantity %>" required />
+    <button
+      class="btn btn-alt cart-item-update-button"
+      data-productid="<%= cartItem.product.id %>"
+      data-csrf="<%= locals.csrfToken %>"
+    >
+      Update
+    </button>
+  </form>
+</article>

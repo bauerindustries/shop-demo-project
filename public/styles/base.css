@@ -117,3 +117,11 @@ button,
 .alert p {
   margin: var(--space-2) 0;
 }
+
+.badge {
+  margin-left: var(--space-2);
+  padding: 0.15rem var(--space-4);
+  border-radius: 10rem;
+  background-color: var(--colour-primary-500);
+  color: var(--colour-primary-500-contrast);
+}

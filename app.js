@@ -13,6 +13,7 @@ const errorHandlerMiddleware = require('./middleware/error-handler.middleware');
 const csrfTokenMiddleware = require('./middleware/csrf-token.middleware');
 const protectRoutesMiddleware = require('./middleware/protect-routes.middleware');
 const checkAuthStatusMiddleware = require('./middleware/check-auth.middleware');
+const cartMiddleware = require('./middleware/cart.middleware');
 
 
 // routes
@@ -20,6 +21,7 @@ const baseRoutes = require('./routes/base.routes');
 const authRoutes = require('./routes/auth.routes');
 const productsRoutes = require('./routes/products.routes');
 const adminRoutes = require('./routes/admin.routes');
+const cartRoutes = require('./routes/cart.routes');
 
 const app = express();
 
@@ -31,19 +33,23 @@ app.use(express.static('public'));
 app.use('/products/assets/', express.static('product-data'));
 // middleware to allow data attached to requests (esp. form submission)
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 const sessionConfig = createSessionConfig();
 app.use(expressSession(sessionConfig));
 
 app.use(csrf());
-// custom middleware does not need to be called, unlike 3rd-party middlewares
-app.use(csrfTokenMiddleware);
 
+// custom middleware does not need to be called, unlike 3rd-party middlewares
+app.use(cartMiddleware);
+app.use(csrfTokenMiddleware);
 app.use(checkAuthStatusMiddleware);
 
 app.use(baseRoutes);
 app.use(authRoutes);
 app.use('/products', productsRoutes);
+app.use('/cart', cartRoutes); 
+// protect admin routes
 app.use(protectRoutesMiddleware); 
 app.use('/admin', adminRoutes); 
 
