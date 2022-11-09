@@ -25,8 +25,15 @@ async function addOrder(req, res, next) {
   res.redirect('/orders');
 }
 
-function getOrders(req, res) {
-  res.render('customer/orders/all-orders');
+async function getOrders(req, res) {
+  try {
+    const orders = await Order.findAllForUser(res.locals.uid);
+    res.render('customer/orders/all-orders', {
+      orders: orders,
+    });
+  } catch (error) {
+    next(error);
+  }
 }
 
 module.exports = {
