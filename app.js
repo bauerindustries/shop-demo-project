@@ -22,6 +22,7 @@ const authRoutes = require('./routes/auth.routes');
 const productsRoutes = require('./routes/products.routes');
 const adminRoutes = require('./routes/admin.routes');
 const cartRoutes = require('./routes/cart.routes');
+const ordersRoutes = require('./routes/orders.routes');
 
 const app = express();
 
@@ -49,8 +50,9 @@ app.use(baseRoutes);
 app.use(authRoutes);
 app.use('/products', productsRoutes);
 app.use('/cart', cartRoutes); 
-// protect admin routes
+// protect admin and other 'require-login' routes
 app.use(protectRoutesMiddleware); 
+app.use('/orders', ordersRoutes); 
 app.use('/admin', adminRoutes); 
 
 // error handling

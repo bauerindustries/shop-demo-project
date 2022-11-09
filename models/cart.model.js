@@ -35,7 +35,8 @@ class Cart {
       const item = this.items[i];
       if (item.product.id === productId && newQuantity > 0) {
         const cartItem = { ...item };
-        const quantityChange = newQuantity - item.quantity;
+        // + to force number conversion and prevent adding number to string
+        const quantityChange = +newQuantity - item.quantity;
         cartItem.quantity = newQuantity;
         cartItem.totalPrice = newQuantity * item.product.price;
         this.items[i] = cartItem;
