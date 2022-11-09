@@ -19,6 +19,9 @@ async function addOrder(req, res, next) {
     return next(error);
   }
 
+  // order details are saved in db, so clear the session cart
+  req.session.cart = null;
+
   res.redirect('/orders');
 }
 
