@@ -14,6 +14,7 @@ const csrfTokenMiddleware = require('./middleware/csrf-token.middleware');
 const protectRoutesMiddleware = require('./middleware/protect-routes.middleware');
 const checkAuthStatusMiddleware = require('./middleware/check-auth.middleware');
 const cartMiddleware = require('./middleware/cart.middleware');
+const updateCartPricesMiddleware = require('./middleware/update-cart-prices.middleware');
 
 
 // routes
@@ -43,6 +44,7 @@ app.use(csrf());
 
 // custom middleware does not need to be called, unlike 3rd-party middlewares
 app.use(cartMiddleware);
+app.use(updateCartPricesMiddleware);
 app.use(csrfTokenMiddleware);
 app.use(checkAuthStatusMiddleware);
 

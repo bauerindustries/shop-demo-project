@@ -1,5 +1,5 @@
-const mongodb = require('mongodb');
 const db = require('../data/database');
+const mongodb = require('mongodb');
 
 class Order {
   // Status => pending, fulfilled, cancelled

@@ -18,41 +18,49 @@ class Product {
   }
 
   // static to enable direct call without using contructor
-  static async findAll() {
-    const allProducts = await db
-      .getDb()
-      .collection('products')
-      .find()
-      .toArray();
-
-    // map all returned products onto instances of the Product constructor object (which helps with imagepaths etc)
-    return allProducts.map(function (productDocument) {
-      return new Product(productDocument);
-    });
-  }
-
-  // static to enable direct call without using contructor
-  static async findById(id) {
-    let productId;
+  static async findById(productId) {
+    let prodId;
     try {
-      productId = new mongodb.ObjectId(id);
+      prodId = new mongodb.ObjectId(productId);
     } catch (error) {
       error.code = 404;
       throw error;
     }
-
-    const product = await db.getDb().collection('products').findOne({
-      _id: productId,
-    });
+    const product = await db
+      .getDb()
+      .collection('products')
+      .findOne({ _id: prodId });
 
     if (!product) {
-      const error = new Error('Could not find requested product ID');
+      const error = new Error('Could not find product with provided id.');
       error.code = 404;
       throw error;
     }
-
-    // map all returned products onto instances of the Product constructor object (which helps with imagepaths etc)
     return new Product(product);
+  }
+
+  static async findAll() {
+    const products = await db.getDb().collection('products').find().toArray();
+
+    return products.map(function (productDocument) {
+      return new Product(productDocument);
+    });
+  }
+
+  static async findMultiple(ids) {
+    const productIds = ids.map(function (id) {
+      return new mongodb.ObjectId(id);
+    });
+
+    const products = await db
+      .getDb()
+      .collection('products')
+      .find({ _id: { $in: productIds } })
+      .toArray();
+
+    return products.map(function (productDocument) {
+      return new Product(productDocument);
+    });
   }
 
   updateImageData() {
@@ -79,10 +87,10 @@ class Product {
         delete productData.image;
       }
 
-      await db.getDb().collection('products').updateOne(
-        {_id: productId},
-        {$set: productData}, 
-      );
+      await db
+        .getDb()
+        .collection('products')
+        .updateOne({ _id: productId }, { $set: productData });
     } else {
       await db.getDb().collection('products').insertOne(productData);
     }
@@ -101,13 +109,14 @@ class Product {
     });
 
     if (!deletedProduct) {
-      const error = new Error('Sorry, because of problem, the selected product could not be deleted');
+      const error = new Error(
+        'Sorry, because of problem, the selected product could not be deleted'
+      );
       error.code = 404;
       throw error;
     }
 
     return;
-
   }
 }
 
