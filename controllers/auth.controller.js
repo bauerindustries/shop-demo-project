@@ -153,7 +153,11 @@ async function login(req, res) {
   }
 
   authUtil.createUserSession(req, existingUser, function () {
-    res.redirect('/products');
+    if (req.session.isAdmin) {
+      res.redirect('/admin/products');
+    } else {
+      res.redirect('/products');
+    }
   });
 }
 

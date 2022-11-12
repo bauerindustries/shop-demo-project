@@ -66,7 +66,7 @@ async function getOrders(req, res) {
 
 async function getSuccess(req, res, next) {
   const orderId = req.session.orderId;
-  const newStatus = 'Paid';
+  const newStatus = 'paid';
 
   try {
     const order = await Order.findById(orderId);
@@ -76,10 +76,10 @@ async function getSuccess(req, res, next) {
     next(error);
   }
 
-  // order details are saved in db, so clear the session cart
+  // order details are saved in db and order status updated, so clear the session data
   req.session.cart = null;
   req.session.orderId = null;
-  +res.render('customer/orders/success');
+  res.render('customer/orders/success');
 }
 
 function getFailure(req, res) {

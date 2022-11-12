@@ -6,6 +6,8 @@ const router = express.Router();
 
 // /admin is being prepended to these routes in app.js, via app.use('/admin', adminRoutes);
 
+router.get('/', adminController.getProducts);
+
 router.get('/products', adminController.getProducts);
 
 router.get('/products/new', adminController.getNewProduct);

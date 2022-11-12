@@ -53,8 +53,9 @@ app.use(authRoutes);
 app.use('/products', productsRoutes);
 app.use('/cart', cartRoutes);
 // protect admin and other 'require-login' routes
-app.use('/orders', protectRoutesMiddleware, ordersRoutes);
-app.use('/admin', protectRoutesMiddleware, adminRoutes);
+app.use(protectRoutesMiddleware);
+app.use('/admin', adminRoutes);
+app.use('/orders', ordersRoutes);
 
 app.use(notFoundHandlerMiddleware);
 
