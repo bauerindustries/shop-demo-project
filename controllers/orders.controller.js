@@ -1,4 +1,6 @@
-const stripe = require('stripe')('sk_test_51M32vVLMYJuhTBmfjW0LKvdmo5ZaW4pHYW0kIfVwDB0mXvXeA69i2L5FY7mp9mVBzGa9XfT2pO78c4hNoVLJR3sB00Kwege4XC');
+const stripe = require('stripe')(
+  'sk_test_51M32vVLMYJuhTBmfjW0LKvdmo5ZaW4pHYW0kIfVwDB0mXvXeA69i2L5FY7mp9mVBzGa9XfT2pO78c4hNoVLJR3sB00Kwege4XC'
+);
 // same as:
 // const stripe = require('stripe')
 // const stripeObj = stripe('sk_test_51M32vVLMYJuhTBmfjW0LKvdmo5ZaW4pHYW0kIfVwDB0mXvXeA69i2L5FY7mp9mVBzGa9XfT2pO78c4hNoVLJR3sB00Kwege4XC')
@@ -17,19 +19,18 @@ async function addOrder(req, res, next) {
   }
 
   const order = new Order(cart, userDocument);
-
+  let orderResponse;
   try {
-    await order.save();
+    orderResponse = await order.save();
   } catch (error) {
     return next(error);
   }
 
-  // order details are saved in db, so clear the session cart
-  req.session.cart = null;
-  
+  req.session.orderId = orderResponse.insertedId;
+
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
-    line_items: cart.items.map(function(item){
+    line_items: cart.items.map(function (item) {
       return {
         // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
         price_data: {
@@ -40,7 +41,7 @@ async function addOrder(req, res, next) {
           unit_amount: (+item.product.price * 100).toFixed(0),
         },
         quantity: item.quantity,
-        } 
+      };
     }),
     mode: 'payment',
     success_url: 'http://localhost:3000/orders/success',
@@ -63,12 +64,26 @@ async function getOrders(req, res) {
   }
 }
 
-function getSuccess(req, res) {
- res.render('customer/orders/success');
+async function getSuccess(req, res, next) {
+  const orderId = req.session.orderId;
+  const newStatus = 'Paid';
+
+  try {
+    const order = await Order.findById(orderId);
+    order.status = newStatus;
+    await order.save();
+  } catch (error) {
+    next(error);
+  }
+
+  // order details are saved in db, so clear the session cart
+  req.session.cart = null;
+  req.session.orderId = null;
+  +res.render('customer/orders/success');
 }
 
 function getFailure(req, res) {
- res.render('customer/orders/failure');
+  res.render('customer/orders/failure');
 }
 
 module.exports = {

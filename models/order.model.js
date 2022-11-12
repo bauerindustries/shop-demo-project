@@ -2,7 +2,7 @@ const db = require('../data/database');
 const mongodb = require('mongodb');
 
 class Order {
-  // Status => pending, fulfilled, cancelled
+  // Status => pending, fulfilled, cancelled, paid
   constructor(cart, userData, status = 'pending', date, orderId) {
     this.productData = cart;
     this.userData = userData;
