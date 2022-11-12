@@ -9,4 +9,8 @@ router.get('/', ordersController.getOrders); // /orders
 
 router.post('/', ordersController.addOrder); // /orders
 
+router.get('/success', ordersController.getSuccess); // /orders/success
+
+router.get('/falure', ordersController.getFailure); // /orders/failure
+
 module.exports = router;

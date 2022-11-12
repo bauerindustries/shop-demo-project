@@ -1,3 +1,8 @@
+const stripe = require('stripe')('sk_test_51M32vVLMYJuhTBmfjW0LKvdmo5ZaW4pHYW0kIfVwDB0mXvXeA69i2L5FY7mp9mVBzGa9XfT2pO78c4hNoVLJR3sB00Kwege4XC');
+// same as:
+// const stripe = require('stripe')
+// const stripeObj = stripe('sk_test_51M32vVLMYJuhTBmfjW0LKvdmo5ZaW4pHYW0kIfVwDB0mXvXeA69i2L5FY7mp9mVBzGa9XfT2pO78c4hNoVLJR3sB00Kwege4XC')
+
 const User = require('../models/user.model');
 const Order = require('../models/order.model');
 
@@ -21,8 +26,30 @@ async function addOrder(req, res, next) {
 
   // order details are saved in db, so clear the session cart
   req.session.cart = null;
+  
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: cart.items.map(function(item){
+      return {
+        // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+        price_data: {
+          currency: 'gbp',
+          product_data: {
+            name: item.product.title,
+          },
+          unit_amount: (+item.product.price * 100).toFixed(0),
+        },
+        quantity: item.quantity,
+        } 
+    }),
+    mode: 'payment',
+    success_url: 'http://localhost:3000/orders/success',
+    cancel_url: 'http://localhost:3000/orders/failure',
+  });
 
-  res.redirect('/orders');
+  res.redirect(303, session.url);
+
+  // res.redirect('/orders');
 }
 
 async function getOrders(req, res) {
@@ -36,7 +63,17 @@ async function getOrders(req, res) {
   }
 }
 
+function getSuccess(req, res) {
+ res.render('customer/orders/success');
+}
+
+function getFailure(req, res) {
+ res.render('customer/orders/failure');
+}
+
 module.exports = {
   addOrder: addOrder,
   getOrders: getOrders,
+  getSuccess: getSuccess,
+  getFailure: getFailure,
 };
