@@ -4,14 +4,19 @@ const MongoClient = mongodb.MongoClient;
 
 let mongodbUrl = process.env.MONGODB_URL;
 if (mongodbUrl == null || mongodbUrl == "") {
-  mongodbUrl = 'mongodb+srv://chrisb:tavtod-wYsre1-qeftin@cluster0.ceyex84.mongodb.net/?retryWrites=true&w=majority';
+  mongodbUrl = 'mongodb://localhost:27017';
 }
 
 let database;
 
 async function connectToDatabase() {
-  const client = await MongoClient.connect(mongodbUrl);
-  database = client.db('online-shop');
+  try {
+    const client = await MongoClient.connect(mongodbUrl);
+    database = client.db('online-shop');
+  } catch (error) {
+    next(error);
+    return;
+  }
 }
 
 function getDb() {
