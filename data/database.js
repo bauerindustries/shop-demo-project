@@ -2,7 +2,11 @@ const mongodb = require('mongodb');
 
 const MongoClient = mongodb.MongoClient;
 
-const mongodbUrl = process.env.MONGODB_URL;
+let mongodbUrl = process.env.MONGODB_URL;
+if (mongodbUrl == null || mongodbUrl == '') {
+  mongodbUrl = 'mongodb://localhost:27017';
+}
+
 let database;
 
 async function connectToDatabase() {
