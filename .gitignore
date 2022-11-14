@@ -1,3 +1,4 @@
 /node_modules/
 /product-data
 .DS_Store
+.env
