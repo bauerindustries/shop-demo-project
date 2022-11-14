@@ -4,7 +4,7 @@ const MongoClient = mongodb.MongoClient;
 
 let mongodbUrl = process.env.MONGODB_URL;
 if (mongodbUrl == null || mongodbUrl == "") {
-  mongodbUrl = 'mongodb://localhost:27017';
+  mongodbUrl = 'mongodb+srv://chrisb:tavtod-wYsre1-qeftin@cluster0.ceyex84.mongodb.net/?retryWrites=true&w=majority';
 }
 
 let database;
