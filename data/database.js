@@ -9,9 +9,9 @@ if (mongodbUrl == null || mongodbUrl == "") {
 
 let database;
 
-async function initDatabase() {
+async function connectToDatabase() {
   const client = await MongoClient.connect(mongodbUrl);
-  database = client.db('deployment');
+  database = client.db('online-shop');
 }
 
 function getDb() {
