@@ -2,11 +2,16 @@ const mongodb = require('mongodb');
 
 const MongoClient = mongodb.MongoClient;
 
+let mongodbUrl = process.env.MONGODB_URL;
+if (mongodbUrl == null || mongodbUrl == "") {
+  mongodbUrl = 'mongodb://localhost:27017';
+}
+
 let database;
 
-async function connectToDatabase() {
-  const client = await MongoClient.connect('mongodb://localhost:27017');
-  database = client.db('online-shop');
+async function initDatabase() {
+  const client = await MongoClient.connect(mongodbUrl);
+  database = client.db('deployment');
 }
 
 function getDb() {

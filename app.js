@@ -63,10 +63,16 @@ app.use(notFoundHandlerMiddleware);
 app.use(errorHandlerMiddleware);
 
 // .then because connectToDatabase returns a promise
-db.connectToDatabase()
+let port = process.env.PORT;
+if (port == null || port == '') {
+  port = 3000;
+}
+
+db.initDatabase()
   .then(function () {
-    app.listen(3000);
+    app.listen(port);
   })
+
   .catch(function (error) {
     console.log('Failed to connect to the database');
     console.log(error);
