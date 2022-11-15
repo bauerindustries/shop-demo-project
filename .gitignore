@@ -2,3 +2,4 @@
 /product-data
 .DS_Store
 .env
+.env.production
