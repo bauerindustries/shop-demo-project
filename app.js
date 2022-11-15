@@ -1,5 +1,4 @@
 // third party
-require('dotenv').config;
 const express = require('express');
 const path = require('path');
 const ejs = require('ejs');
@@ -64,6 +63,9 @@ app.use(notFoundHandlerMiddleware);
 app.use(errorHandlerMiddleware);
 
 let port = process.env.PORT;
+if (port == null || port == '') {
+  port = 3000;
+}
 
 // .then because connectToDatabase returns a promise
 db.connectToDatabase()

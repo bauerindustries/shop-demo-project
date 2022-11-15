@@ -2,7 +2,6 @@ const imagePickerElement = document.querySelector('#image-upload-control input')
 const imagePreviewElement = document.querySelector('#image-upload-control img');
 
 function updateImagePreview() {
-  console.log('called!');
   const files = imagePickerElement.files;
 
   if (!files || files.length === 0) {

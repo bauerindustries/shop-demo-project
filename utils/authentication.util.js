@@ -2,9 +2,6 @@ function createUserSession(req, user, action) {
     req.session.uid = user._id.toString();
     req.session.isAdmin = user.isAdmin;
 
-    console.log(user.isAdmin);
-    console.log(req.session.isAdmin);
-
     // make callback one save complete
     req.session.save(action);
 }
