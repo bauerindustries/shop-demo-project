@@ -1,12 +1,9 @@
+require('dotenv').config();
 const mongodb = require('mongodb');
 
 const MongoClient = mongodb.MongoClient;
 
 let mongodbUri = process.env.MONGODB_URL;
-if (mongodbUri == null || mongodbUri == '') {
-  mongodbUri = 'mongodb://localhost:27017';
-}
-
 let database;
 
 async function connectToDatabase() {
