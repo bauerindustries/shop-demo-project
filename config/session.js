@@ -5,7 +5,7 @@ function createSessionStore() {
   const MongoDbStore = mongoDbStore(expressSession);
 
   let mongodbUri = process.env.MONGODB_URL;
-  if (mongodbUri == null || mongodbUri == "") {
+  if (mongodbUri == null || mongodbUri == '') {
     mongodbUri = 'mongodb://localhost:27017';
   }
 

@@ -71,7 +71,8 @@ if (port == null || port == '') {
 db.connectToDatabase()
   .then(function () {
     app.listen(port);
-  }).catch(function (error) {
+  })
+  .catch(function (error) {
     console.log('Failed to connect to the database');
     console.log(error);
   });

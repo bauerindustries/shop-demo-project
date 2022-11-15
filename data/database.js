@@ -3,7 +3,7 @@ const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 
 let mongodbUri = process.env.MONGODB_URL;
-if (mongodbUri == null || mongodbUri == "") {
+if (mongodbUri == null || mongodbUri == '') {
   mongodbUri = 'mongodb://localhost:27017';
 }
 
@@ -20,7 +20,7 @@ async function connectToDatabase() {
 }
 
 function getDb() {
-  if(!database) {
+  if (!database) {
     throw new Error('You must connect to database first!');
   }
 
