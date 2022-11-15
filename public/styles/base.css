@@ -75,6 +75,7 @@ button,
   cursor: pointer;
   font-family: inherit;
   padding: var(--space-2) var(--space-6);
+  margin: 0;
   background-color: var(--colour-primary-500);
   color: var(--colour-primary-500-contrast);
   border: 1px solid var(--colour-primary-500);
