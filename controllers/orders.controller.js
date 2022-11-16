@@ -1,9 +1,9 @@
-const stripe = require('stripe')(
-  'sk_test_51M32vVLMYJuhTBmfjW0LKvdmo5ZaW4pHYW0kIfVwDB0mXvXeA69i2L5FY7mp9mVBzGa9XfT2pO78c4hNoVLJR3sB00Kwege4XC'
-);
 // same as:
 // const stripe = require('stripe')
 // const stripeObj = stripe('sk_test_51M32vVLMYJuhTBmfjW0LKvdmo5ZaW4pHYW0kIfVwDB0mXvXeA69i2L5FY7mp9mVBzGa9XfT2pO78c4hNoVLJR3sB00Kwege4XC')
+const stripe = require('stripe')(
+  'sk_test_51M32vVLMYJuhTBmfjW0LKvdmo5ZaW4pHYW0kIfVwDB0mXvXeA69i2L5FY7mp9mVBzGa9XfT2pO78c4hNoVLJR3sB00Kwege4XC'
+);
 
 const User = require('../models/user.model');
 const Order = require('../models/order.model');
