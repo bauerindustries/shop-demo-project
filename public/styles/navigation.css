@@ -108,7 +108,7 @@ main {
 /* desktop styling */
 @media (min-width: 768px) {
   main {
-    margin-top: 6rem;
+    margin-top: 4rem;
   }
 
   #main-header {
@@ -118,7 +118,7 @@ main {
   #mobile-menu {
     display: none;
   }
-  
+
   #mobile-menu-button {
     display: none;
   }
