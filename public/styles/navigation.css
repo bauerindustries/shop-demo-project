@@ -108,7 +108,7 @@ main {
 /* desktop styling */
 @media (min-width: 768px) {
   main {
-    margin-top: 4rem;
+    margin-top: 3rem;
   }
 
   #main-header {
