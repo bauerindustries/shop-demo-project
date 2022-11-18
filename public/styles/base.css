@@ -82,6 +82,7 @@ button,
   border-radius: var(--border-radius-small);
   transition: var(--btn-transition);
   font-size: inherit;
+  text-align: center;
 }
 
 .btn:hover,
