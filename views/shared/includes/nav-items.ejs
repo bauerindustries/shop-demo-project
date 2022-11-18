@@ -1,19 +1,25 @@
 <ul class="nav-items">
-    <% if (!locals.isAdmin) { %>
-    <li><a href="/">Shop</a></li>
-    <li><a href="/cart">Cart <span class="badge"><%= locals.cart.totalQuantity %></span></a></li>
-    <% } %> <% if (locals.isAuth & !locals.isAdmin) { %>
-    <li><a href="/orders">Orders</a></li>
-    <% } %> <% if (locals.isAdmin) { %>
-    <li><a href="/admin/products">Manage Products</a></li>
-    <li><a href="/admin/orders">Manage Orders</a></li>
-    <% } %> <% if (!locals.isAuth) { %>
-    <li><a href="/signup">Register</a></li>
-    <li><a href="/login">Log in</a></li>
-    <% } %> <% if (locals.isAuth) { %>
-        <li><form action="/logout" method="POST">
+  <% if (!locals.isAdmin) { %>
+  <li><a href="/products">Shop</a></li>
+  <li>
+    <a href="/cart"
+      >Cart <span class="badge"><%= locals.cart.totalQuantity %></span></a
+    >
+  </li>
+  <% } %> <% if (locals.isAuth & !locals.isAdmin) { %>
+  <li><a href="/orders">Orders</a></li>
+  <% } %> <% if (locals.isAdmin) { %>
+  <li><a href="/admin/products">Manage Products</a></li>
+  <li><a href="/admin/orders">Manage Orders</a></li>
+  <% } %> <% if (!locals.isAuth) { %>
+  <li><a href="/signup">Register</a></li>
+  <li><a href="/login">Log in</a></li>
+  <% } %> <% if (locals.isAuth) { %>
+  <li>
+    <form action="/logout" method="POST">
       <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
       <button class="btn">Log out</button>
-    </form></li>
-    <% } %>
-  </ul>
+    </form>
+  </li>
+  <% } %>
+</ul>

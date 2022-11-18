@@ -61,6 +61,45 @@
   border: 1px solid var(--colour-gray-100);
 }
 
+#splash {
+  position: fixed;
+  top: 5rem;
+  width: 90%;
+  height: 100%;
+  max-width: var(--width-full);
+  padding: var(--space-8);
+  background-color: rgb(32, 29, 26);
+  border-radius: var(--border-radius-medium);
+  font-weight: 100;
+}
+
+#splash h1,
+#splash h2 {
+  color: var(--colour-primary-400);
+}
+
+#splash h3 span {
+  font-weight: 100;
+}
+
+#splash ul {
+  list-style-type: disc;
+  margin-left: var(--space-6);
+  margin-bottom: var(--space-8);
+  font-weight: 100;
+}
+
+#splash li {
+  margin-bottom: var(--space-2);
+}
+
+#splash #splash-footer {
+  margin-top: var(--space-8);
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding-top: var(--space-8);
+}
 
 @media (min-width: 48rem) {
   #product-details header {

@@ -1,0 +1,50 @@
+<%- include('../../shared/includes/head', {pageTitle: 'All products'}) %>
+<link rel="stylesheet" href="/styles/products.css" />
+<script src="/scripts/cart-management.js" defer></script>
+<%- include('../../shared/includes/head-end') %>
+
+<body>
+  <%- include('../../shared/includes/header') %>
+  <main>
+    <div id="splash">
+      <h1>What's going on here?</h1>
+      <p>
+        A basic shop demo built in Node, Express and MongoDB. The database lives
+        on Atlas.
+      </p>
+      <h2>Things you can do:</h2>
+      <h3>As an unregistered Customer:</h3>
+      <p></p><ul>
+        <li>Browse and add items to your shopping cart.</li>
+        <li>View the cart, update item totals.</li>
+        <li>Register!</li>
+      </ul>
+    </p>
+      <h3>As a registered and logged-in customer:</h3>
+      <p></p><ul>
+        <li>All of the above, plus:</li>
+        <li>
+          Check out your cart via Stripe (use dummy card no. 4242 4242 4242 424, any future expiry date, any 3 security digits
+        .</li>
+        <li>Review your previous orders after checkout.</li>
+      </ul>
+    </p>
+      <h3>As an Administrator:</h3>
+      <p></p><ul>
+        <li>
+          Add, delete and update products (The first 3 products are protected
+          from deletion)
+        .</li>
+        <li>Review and change status of customer orders.</li>
+        <li>(user: boss@cabstores.com, password: test123)</li>
+      </ul>
+    </p><div id="splash-footer">
+      <a href="/products" class="btn">Let's go shopping...</a>
+    </div>
+    
+    </div>
+   
+  </main>
+
+  <%- include('../../shared/includes/footer') %>
+</body>
