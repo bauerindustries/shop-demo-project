@@ -1,11 +1,11 @@
-const addToCartButtonElement = document.querySelector(
-  '#product-details button'
+const addToCartButtonElements = document.querySelectorAll(
+  '.add-to-cart-button'
 );
 const badgeElements = document.querySelectorAll('.nav-items .badge');
 
 async function addToCart(event) {
-  const productId = addToCartButtonElement.dataset.productid;
-  const csrfToken = addToCartButtonElement.dataset.csrf;
+  const productId = event.target.dataset.productid;
+  const csrfToken = event.target.dataset.csrf;
 
   let response;
   try {
@@ -36,4 +36,6 @@ async function addToCart(event) {
   }
 }
 
-addToCartButtonElement.addEventListener('click', addToCart);
+for (const addToCartButtonElement of addToCartButtonElements) {
+  addToCartButtonElement.addEventListener('click', addToCart);
+}

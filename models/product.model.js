@@ -9,6 +9,7 @@ class Product {
     this.price = +productData.price;
     this.description = productData.description;
     this.image = productData.image;
+    this.alwaysInStock = productData.alwaysInStock;
 
     this.updateImageData();
     // only for existing products, not new ones
@@ -106,6 +107,7 @@ class Product {
 
     const deletedProduct = await db.getDb().collection('products').deleteOne({
       _id: productId,
+      alwaysInStock: null,
     });
 
     if (!deletedProduct) {

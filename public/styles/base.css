@@ -5,7 +5,7 @@
 
 html {
   font-family: 'Roboto', sans-serif;
-  
+
   --colour-gray-50: rgb(243, 236, 230);
   --colour-gray-100: rgb(207, 201, 195);
   --colour-gray-300: rgb(99, 92, 86);
@@ -53,7 +53,7 @@ body {
 
 main {
   width: 90%;
-  max-width: var(--width-full);;
+  max-width: var(--width-full);
   margin: 0 auto;
 }
 
@@ -84,7 +84,6 @@ button,
   font-size: inherit;
 }
 
-
 .btn:hover,
 .btn:active {
   background-color: var(--colour-primary-700);
@@ -100,6 +99,10 @@ button,
 .btn-alt:hover,
 .btn-alt:active {
   background-color: var(--colour-primary-500-bg);
+}
+
+.delete-product-button[disabled='disabled'] {
+  opacity: 0.3;
 }
 
 .alert {
