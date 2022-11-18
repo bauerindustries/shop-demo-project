@@ -44,8 +44,8 @@ async function addOrder(req, res, next) {
       };
     }),
     mode: 'payment',
-    success_url: 'http://localhost:3000/orders/success',
-    cancel_url: 'http://localhost:3000/orders/failure',
+    success_url: process.env.DOMAIN + '/orders/success',
+    cancel_url: process.env.DOMAIN + '/orders/failure',
   });
 
   res.redirect(303, session.url);
