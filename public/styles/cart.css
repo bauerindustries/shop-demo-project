@@ -7,6 +7,19 @@
   margin: var(--space-4) 0;
 }
 
+.cart-item-info {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cart-item-info img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: var(--border-radius-small);
+  margin-right: var(--space-4);
+}
+
 .cart-item h2 {
   font-size: 1.2rem;
   margin: 0;
@@ -23,6 +36,10 @@
 .cart-product-price {
   font-style: italic;
   color: var(--colour-gray-300);
+}
+
+.cart-item-management-form {
+  text-align: right;
 }
 
 #cart-total {
