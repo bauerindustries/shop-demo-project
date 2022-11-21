@@ -2,18 +2,20 @@
 
 A simple demonstration shopping site with the following functionality:
 * User:
- ** User registration
- ** Sign-in/authentication
- ** Product browsing
- ** Add products to shopping cart 
- ** View shopping cart
- ** Checkout, with 3rd-party payment processing (Stripe)
- ** View previous orders
- ** Automatic order status updating (post-payement)
+  * User registration
+  * Sign-in/authentication
+  * Product browsing
+  * Add products to shopping cart 
+  * View shopping cart
+  * Checkout, with 3rd-party payment processing (Stripe)
+  * View previous orders
+  * Automatic order status updating (post-payement)
+
+
 * Administrator:
- ** Sign-in/authorisation
- ** Inventory management
- ** Manual order status updating
+  * Sign-in/authorisation
+  * Inventory management
+  * Manual order status updating
 
 ## Technologies used:
 * Node.js
@@ -27,8 +29,8 @@ A simple demonstration shopping site with the following functionality:
 * Sessions/Cookies
 * Route security
 * CSRF tokens
-* Deployment
 * Environmental variables
+* Deployment
 
 ## Operations:
 GUI input sends request methods and data to the [API](https://github.com/bauerindustries/todos-rest-api) endpoints, to achieve the following:
