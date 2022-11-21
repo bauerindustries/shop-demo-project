@@ -21,7 +21,7 @@ main {
 }
 
 #logo a {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-family: 'Bevan';
   color: var(--colour-primary-200);
 }
@@ -164,5 +164,11 @@ main {
   .nav-items button:hover {
     background-color: var(--colour-primary-500-bg);
     border: 1px solid var(--colour-primary-500-bg);
+  }
+}
+
+@media (max-width: 340px) {
+  #logo a {
+    font-size: 1.4rem;
   }
 }
