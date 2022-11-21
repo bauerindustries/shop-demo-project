@@ -19,7 +19,14 @@ A simple [demonstration shopping site](https://shop-demo-node-js-express-mondodb
   * Product image upload
   * Manual order status updating
 
+* General:
+  * Route protection for unauthorised users
+  * Error handling
+  * Cross-site request forgery protection
+
+
 ## Technologies used:
+Code:
 * Node.js
 * Express.js
 * MongoDB
@@ -27,6 +34,8 @@ A simple [demonstration shopping site](https://shop-demo-node-js-express-mondodb
 * CSS
 * Javascript
 
+Techniques:
+* MVC pattern
 * API integration
 * Sessions/Cookies
 * Route security
