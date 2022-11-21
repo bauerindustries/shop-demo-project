@@ -11,6 +11,9 @@
 
       <div id="product-info">
         <h1><%= product.title %></h1>
+
+        <p id="product-description"><%= product.description %></p>
+
         <p>&pound;<%= product.price %></p>
         <button
           class="btn add-to-cart-button"
@@ -22,7 +25,6 @@
         </button>
       </div>
     </header>
-    <p id="product-description"><%= product.description %></p>
   </main>
 
   <%- include('../../shared/includes/footer') %>

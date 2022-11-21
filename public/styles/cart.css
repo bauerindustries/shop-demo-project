@@ -1,10 +1,11 @@
 .cart-item {
   display: flex;
   flex-direction: column;
-  background-color: var(--colour-gray-700);
-  padding: var(--space-4);
-  border-radius: var(--border-radius-medium);
+  background-color: var(--colour-grey-700);
   margin: var(--space-4) 0;
+  padding: var(--space-8);
+  background-color: var(--colour-grey-600);
+  border-radius: var(--border-radius-medium);
 }
 
 .cart-item-info {
@@ -35,7 +36,7 @@
 
 .cart-product-price {
   font-style: italic;
-  color: var(--colour-gray-300);
+  color: var(--colour-grey-300);
 }
 
 .cart-item-management-form {
