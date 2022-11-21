@@ -41,7 +41,7 @@ Techniques:
 
 
 ## Hosting:
-You can see the site running [here](https://shop-demo-node-js-express-mondodb.onrender.com) on Render. There are Admin log-in details provided.
+You can see the site running [here](https://shop-demo-node-js-express-mondodb.onrender.com) on Render. Administrator log-in details are provided on the landing page.
 
 The MongoDB database is hosted on MongoDB's Atlas Database.
 
