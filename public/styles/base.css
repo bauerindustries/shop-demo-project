@@ -5,6 +5,7 @@
 
 html {
   font-family: 'Roboto', sans-serif;
+  font-weight: 100;
 
   /* --colour-grey-50: rgb(243, 236, 230);
   --colour-grey-100: rgb(207, 201, 195);
@@ -76,6 +77,12 @@ main {
   width: 90%;
   max-width: var(--width-full);
   margin: 0 auto;
+}
+
+h1,
+h2 {
+  font-family: 'Bevan';
+  font-weight: 100;
 }
 
 h1 {

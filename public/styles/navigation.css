@@ -1,6 +1,7 @@
 /* mobile first styling */
 main {
   margin-top: 6rem;
+  margin-bottom: 6rem;
 }
 
 #main-header {
@@ -33,6 +34,7 @@ main {
 
 #main-header li {
   padding: 0 var(--space-2);
+  font-family: 'Bevan';
 }
 
 #main-header li:last-child {
@@ -110,6 +112,7 @@ main {
 @media (min-width: 768px) {
   main {
     margin-top: 3rem;
+    margin-bottom: 4rem;
   }
 
   #main-header {
