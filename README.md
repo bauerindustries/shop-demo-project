@@ -1,6 +1,7 @@
 # Shopping site demo
 
-A simple demonstration shopping site with the following functionality:
+A simple [demonstration shopping site](https://shop-demo-node-js-express-mondodb.onrender.com) with the following functionality:
+
 * User:
   * User registration
   * Sign-in/authentication
@@ -15,6 +16,7 @@ A simple demonstration shopping site with the following functionality:
 * Administrator:
   * Sign-in/authorisation
   * Inventory management
+  * Product image upload
   * Manual order status updating
 
 ## Technologies used:
@@ -32,15 +34,9 @@ A simple demonstration shopping site with the following functionality:
 * Environmental variables
 * Deployment
 
-## Operations:
-GUI input sends request methods and data to the [API](https://github.com/bauerindustries/todos-rest-api) endpoints, to achieve the following:
-* Read existing to-do items
-* Create new to-do item/s
-* Update existing to-do item/s
-* Delete to-do item/s
 
 ## Hosting:
-You can see the site running [here](https://shop-demo-node-js-express-mondodb.onrender.com) on Render.
+You can see the site running [here](https://shop-demo-node-js-express-mondodb.onrender.com) on Render. There are Admin log-in details provided.
 
 The MongoDB database is hosted on MongoDB's Atlas Database.
 
