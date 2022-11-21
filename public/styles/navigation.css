@@ -20,7 +20,6 @@ main {
 }
 
 #logo a {
-  font-weight: bold;
   font-size: 2rem;
   font-family: 'Bevan';
   color: var(--colour-primary-200);
