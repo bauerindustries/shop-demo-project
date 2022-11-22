@@ -141,6 +141,7 @@ button,
 
 .delete-product-button[disabled='disabled'] {
   opacity: 0.3;
+  text-decoration: line-through;
 }
 
 .alert {
