@@ -35,6 +35,8 @@ Techniques:
 * Sessions/Cookies
 * Route protection
 * CSRF tokens
+* Form validation
+* Password encryption
 * Error handling
 * Environmental variables
 * Deployment
