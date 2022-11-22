@@ -47,5 +47,10 @@ You can see the site running [here](https://shop-demo-node-js-express-mondodb.on
 
 The MongoDB database is hosted on MongoDB's Atlas Database.
 
+## Requirements:
+* Environmental variable DOMAIN for domain hosting site
+* Environmental variable MONGODB_URL for database connection string
+* /product-data/images/ directory in root of project
+
 ## Notes
 This project was built as the major module project on [100 Days of Code - Web Development Bootcamp](https://www.udemy.com/course/100-days-of-code-web-development-bootcamp/).
