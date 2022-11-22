@@ -116,6 +116,7 @@ button,
   border-radius: var(--border-radius-small);
   transition: var(--btn-transition);
   font-size: inherit;
+  font-weight: 400;
   text-align: center;
 }
 

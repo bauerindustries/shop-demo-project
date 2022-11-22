@@ -16,6 +16,7 @@
 
 .order-summary h2,
 .order-summary p {
+  font-family: 'Roboto', sans-serif;
   font-size: 1.25rem;
   font-weight: normal;
   margin: 0;
@@ -48,6 +49,7 @@
   font: inherit;
   padding: var(--space-2);
   border-radius: var(--border-radius-small);
+  height: 2.4rem;
 }
 
 @media (min-width: 48rem) {

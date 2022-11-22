@@ -8,22 +8,35 @@
   <main>
     <h1>Your Cart</h1>
     <section>
+      <% if (locals.cart.items.length === 0 || !locals.cart.items) { %>
+      <div class="cart-item">
+        <p>You do not have any items in your cart yet.</p>
+      </div>
+      <% } else { %>
+
       <ul id="cart-items">
         <% for (const cartItem of locals.cart.items) { %>
         <li><%- include('./includes/cart-item', {cartItem: cartItem}) %></li>
         <% } %>
       </ul>
       <div id="cart-total">
-        <p>Total: &pound;<span id="cart-total-price"><%= locals.cart.totalPrice.toFixed(2) %></span></p>
-        <% if(locals.isAuth && locals.cart.totalQuantity > 0) { %> 
+        <p>
+          Total: &pound;<span id="cart-total-price"
+            ><%= locals.cart.totalPrice.toFixed(2) %></span
+          >
+        </p>
+        <% if(locals.isAuth && locals.cart.totalQuantity > 0) { %>
         <form action="/orders" method="POST">
-          <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>"> 
+          <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
           <button class="btn">Checkout</button>
         </form>
         <% } else { %>
-          <p class="cart-total-fallback">Log in and add items to the cart to proceed...</p>
-          <% } %>
+        <p class="cart-total-fallback">
+          Log in and add items to the cart to proceed...
+        </p>
+        <% } %>
       </div>
+      <% } %>
     </section>
   </main>
 

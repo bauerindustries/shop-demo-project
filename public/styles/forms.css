@@ -26,6 +26,9 @@ textarea {
 
 #image-upload-control input {
   max-width: 15rem;
+  color: white;
+  display: flex;
+  align-items: center;
 }
 
 #image-upload-control img {
