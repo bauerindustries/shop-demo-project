@@ -43,6 +43,10 @@
   text-align: right;
 }
 
+.cart-item-management-form input {
+  background-color: var(--colour-primary-200);
+}
+
 #cart-total {
   display: flex;
   flex-direction: column;
