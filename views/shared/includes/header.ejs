@@ -1,8 +1,8 @@
 <header id="main-header">
-  <div id="logo"><a href="<%- !locals.isAdmin ? '/' : '/admin' %>">CAB Stores</a></div>
-  <nav>
-    <%- include('./nav-items') %> 
-  </nav>
+  <div id="logo">
+    <a href="<%- !locals.isAdmin ? '/' : '/admin' %>">C&amp;B Stores</a>
+  </div>
+  <nav><%- include('./nav-items') %></nav>
   <button id="mobile-menu-button">
     <span></span>
     <span></span>
@@ -10,7 +10,5 @@
   </button>
 </header>
 <aside id="mobile-menu">
-  <nav>
-    <%- include('./nav-items') %> 
-  </nav>
+  <nav><%- include('./nav-items') %></nav>
 </aside>
