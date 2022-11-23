@@ -1,27 +1,25 @@
 <article class="product-item">
   <% if (locals.isAdmin) { %>
     <a href="/admin/products/<%= product.id %>">
-      <% } else { %>
-        <a href="/products/<%= product.id %>" >
-          <% } %> 
-  <img src="<%= product.imageUrl %>" alt="<%= product.title %>" />
-</a>
+  <% } else { %>
+    <a href="/products/<%= product.id %>" >
+  <% } %> 
+  
+      <img src="<%= product.imageUrl %>" alt="<%= product.title %>" />
+    </a>
   <div class="product-item-content">
     <h2><%= product.title %></h2>
     <div class="product-item-actions">
       <% if (locals.isAdmin) { %>
       <a href="/admin/products/<%= product.id %>" class="btn btn-alt"
-        >Edit Product</a
-      >
+        >Edit Product</a>
 
       <button
       class="btn delete-product-button"
       data-productid="<%= product.id %>"
       data-csrf="<%= locals.csrfToken %>"
       class="btn-alt"
-      <% if (product.alwaysInStock === true) { %>
-        disabled="disabled"
-      <% } %>
+      <% if (product.alwaysInStock === true) { %>disabled="disabled" <% } %>
         >
         Delete
       </button>
