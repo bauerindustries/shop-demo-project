@@ -1,5 +1,4 @@
 node_modules
-product-data/images
 .DS_Store
 .env
 .env.production
