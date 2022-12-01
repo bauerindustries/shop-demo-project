@@ -1,6 +1,6 @@
 <article class="order-item">
   <header class="order-summary">
-    <h2><span class="order-item-price">&pound;<%= order.productData.totalPrice.toFixed(2) %></span> - <%= order.formattedDate %></h2>
+    <h2><span class="badge">&pound;<%= order.productData.totalPrice.toFixed(2) %></span> - <%= order.formattedDate %></h2>
     <p><span class="badge"><%= order.status.toUpperCase() %></span></p>
   </header>
 
@@ -29,7 +29,7 @@
           <option value="fulfilled" <% if (order.status === 'fulfilled') { %>selected<% } %>>Fulfilled</option>
           <option value="cancelled" <% if (order.status === 'cancelled') { %>selected<% } %>>Cancelled</option>
         </select>
-        <button class="btn btn-alt">Update</button>
+        <button class="btn btn-add">Update</button>
       </form>
     </section>
   <% } %>

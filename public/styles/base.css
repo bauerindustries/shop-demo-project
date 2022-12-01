@@ -7,45 +7,21 @@ html {
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
 
-  /* --colour-grey-50: rgb(243, 236, 230);
-  --colour-grey-100: rgb(207, 201, 195);
-  --colour-grey-300: rgb(99, 92, 86);
-  --colour-grey-400: rgb(70, 65, 60);
-  --colour-grey-500: rgb(37, 34, 31);
-  --colour-grey-600: rgb(32, 29, 26);
-  --colour-grey-700: rgb(31, 26, 22);
-
-  --colour-primary-50: rgb(253, 224, 200);
-  --colour-primary-100: rgb(253, 214, 183);
-  --colour-primary-200: rgb(250, 191, 143);
-  --colour-primary-400: rgb(223, 159, 41);
-  --colour-primary-500: rgb(212, 136, 14);
-  --colour-primary-700: rgb(212, 120, 14);
-  --colour-primary-200-contrast: rgb(100, 46, 2);
-  --colour-primary-500-contrast: white;
-
-  --colour-error-100: rgb(255, 192, 180);
-  --colour-error-500: rgb(199, 51, 15);
-
-  --colour-primary-500-bg: rgb(63, 60, 58); */
-
-  --colour-primary-500-bg: rgb(54, 56, 64);
-  --colour-grey-50: rgb(243, 236, 230);
-  --colour-grey-100: rgb(247, 247, 247);
-  --colour-grey-300: rgb(147, 139, 131);
-  --colour-grey-500: rgb(133, 138, 140);
-  --colour-grey-600: rgb(61, 63, 64);
-  --colour-grey-700: rgb(37, 39, 40);
-  --colour-primary-50: rgb(237, 197, 255);
+  --colour-primary-500-bg: rgba(142, 117, 57, 0.51); /* keep */
+  --colour-grey-50: rgb(183, 175, 171); /* keep */
+  --colour-grey-100: rgba(255, 243, 206, 0.9); /* keep */
+  --colour-grey-300: rgba(95, 96, 66, 0.2); /* keep */
+  --colour-grey-500: rgba(244, 229, 151, 0.97); /* keep */
+  --colour-grey-600: rgba(244, 229, 151, 0.09); /* keep */
+  --colour-grey-700: rgb(241, 225, 146); /* keep */
+  --colour-primary-20: rgb(68, 59, 54); /* keep */
+  --colour-primary-50: rgba(183, 175, 171, 0.11); /* keep */
   --colour-primary-100: rgb(220, 203, 255);
-  --colour-primary-200: rgb(255, 252, 200);
-  --colour-primary-400: rgb(200, 221, 227);
+  --colour-primary-200: rgb(230, 230, 230); /* keep */
+  --colour-primary-400: rgb(149, 128, 117); /* keep */
   --colour-primary-500: rgb(163, 178, 183);
-  --colour-primary-700: rgb(79, 97, 121);
-  --colour-primary-900: rgb(57, 70, 86);
-  --colour-primary-950: rgb(26, 32, 39);
-  --colour-primary-200-contrast: rgb(234, 78, 209);
-  --colour-primary-500-contrast: white;
+  --colour-primary-900: rgba(128, 112, 84, 0.3); /* keep */
+  --colour-primary-950: rgba(30, 23, 12, 0.64); /* keep */
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -66,12 +42,19 @@ html {
 
   font-size: 120%;
   font-weight: 300;
+  min-height: 100%;
 }
 
 body {
-  background-color: var(--colour-grey-700);
+  /* background-color: var(--colour-grey-700); */
   color: var(--colour-grey-100);
   margin: 0;
+  background: linear-gradient(
+    to bottom,
+    rgb(255, 240, 158),
+    rgb(89, 59, 9),
+    rgb(28, 26, 18)
+  );
 }
 
 main {
@@ -88,7 +71,7 @@ h2 {
 
 h1 {
   text-align: center;
-  color: var(--colour-primary-400);
+  color: var(--colour-primary-20);
 }
 
 ol,
@@ -128,16 +111,22 @@ button,
 }
 
 .btn-alt {
-  color: var(--colour-primary-50);
-  background-color: transparent;
-  border: 1px solid var(--colour-primary-50);
+  color: var(--colour-primary-200);
+  background-color: var(--colour-primary-50);
+  border: 1px solid var(--colour-primary-200);
 }
 
 .btn-alt:hover,
 .btn-alt:focus {
   background-color: var(--colour-primary-900);
   border: 1px solid var(--colour-primary-900);
-  color: var(--colour-primary-50);
+  color: var(--colour-primary-200);
+}
+
+.btn-add {
+  color: var(--colour-primary-20);
+  border-color: var(--colour-primary-20);
+  background-color: var(--colour-grey-500);
 }
 
 .delete-product-button[disabled='disabled'] {
@@ -146,8 +135,7 @@ button,
 }
 
 .alert {
-  color: var(--colour-primary-700);
-  background-color: var(--colour-primary-200);
+  background-color: var(--colour-primary-950);
   border-radius: var(--border-radius-small);
   padding: var(--space-4);
 }
@@ -166,6 +154,6 @@ button,
   margin-left: var(--space-2);
   padding: 0.15rem var(--space-4);
   border-radius: 10rem;
-  background-color: var(--colour-primary-500);
+  background-color: var(--colour-primary-500-bg);
   color: var(--colour-primary-500-contrast);
 }

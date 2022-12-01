@@ -16,14 +16,13 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--colour-grey-700);
-  border-bottom: 1px solid var(--colour-primary-50);
+  border-bottom: 1px solid var(--colour-grey-300);
 }
 
 #logo a {
   font-size: 1.8rem;
   font-family: 'Bevan';
-  color: var(--colour-primary-200);
+  color: var(--colour-primary-20);
 }
 
 .nav-items {
@@ -60,7 +59,7 @@ main {
 #mobile-menu-button span {
   width: 2.25rem;
   height: 0.25rem;
-  background-color: var(--colour-primary-200);
+  background-color: var(--colour-primary-20);
 }
 
 #mobile-menu {
@@ -98,14 +97,14 @@ main {
 #mobile-menu .nav-items a,
 #mobile-menu button {
   font-size: 1.75rem;
-  color: var(--colour-primary-50);
+  color: var(--colour-primary-20);
   border: 1px solid transparent;
 }
 
 #mobile-menu button {
   background-color: transparent;
   color: var(--colour-primary-100);
-  border-color: var(--colour-primary-50);
+  border-color: var(--colour-primary-20);
   font-weight: 100;
 }
 
@@ -146,19 +145,17 @@ main {
     border-radius: var(--border-radius-small);
     border: 1px solid transparent;
     transition: var(--btn-transition);
-    color: var(--colour-primary-50);
+    color: var(--colour-primary-20);
   }
 
   .nav-items a:hover,
   .nav-items a:active {
     background-color: var(--colour-primary-500-bg);
-    border: 1px solid var(--colour-primary-500-bg);
     transition: var(--btn-transition);
   }
 
   .nav-items button {
     background-color: transparent;
-    color: var(--colour-primary-50);
     border: 1px solid var(--colour-primary-500-bg);
   }
   .nav-items button:hover {

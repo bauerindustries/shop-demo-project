@@ -22,7 +22,7 @@
   <form class="cart-item-management-form">
     <input type="number" value="<%= cartItem.quantity %>" required />
     <button
-      class="btn btn-alt cart-item-update-button"
+      class="btn btn-add cart-item-update-button"
       data-productid="<%= cartItem.product.id %>"
       data-csrf="<%= locals.csrfToken %>"
     >

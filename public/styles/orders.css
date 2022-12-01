@@ -23,7 +23,7 @@
 }
 
 .order-item-price {
-  color: var(--colour-primary-200);
+  color: var(--colour-primary-20);
 }
 
 .order-item .status {
@@ -49,7 +49,8 @@
   font: inherit;
   padding: var(--space-2);
   border-radius: var(--border-radius-small);
-  background-color: var(--colour-primary-200);
+  background-color: var(--colour-grey-500);
+  border: 1px solid var(--colour-primary-20);
   height: 2.4rem;
 }
 

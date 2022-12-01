@@ -36,7 +36,7 @@
 
 .cart-product-price {
   font-style: italic;
-  color: var(--colour-primary-400);
+  color: var(--colour-primary-20);
 }
 
 .cart-item-management-form {
@@ -44,7 +44,8 @@
 }
 
 .cart-item-management-form input {
-  background-color: var(--colour-primary-200);
+  background-color: var(--colour-grey-500);
+  border: 1px solid var(--colour-primary-20);
 }
 
 #cart-total {
