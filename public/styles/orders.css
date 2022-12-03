@@ -31,9 +31,9 @@
   min-width: 15rem;
 }
 
-.order-item .status .badge {
+.order-item .badge {
   margin-right: var(--space-4);
-  background-color: var(--colour-primary-50);
+  background-color: var(--colour-primary-10);
 }
 
 .order-details ul {
