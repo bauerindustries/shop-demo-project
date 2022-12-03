@@ -78,7 +78,8 @@
   height: 100%;
   max-width: var(--width-full);
   padding: var(--space-8);
-  background-color: var(--colour-grey-600);
+  background-color: var(--colour-grey-500);
+  color: var(--colour-primary-10);
   border-radius: var(--border-radius-medium);
   font-weight: 100;
   margin-bottom: var(--space-4);

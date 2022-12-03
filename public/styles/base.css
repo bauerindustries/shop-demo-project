@@ -14,6 +14,7 @@ html {
   --colour-grey-500: rgba(244, 229, 151, 0.97); /* keep */
   --colour-grey-600: rgba(244, 229, 151, 0.09); /* keep */
   --colour-grey-700: rgb(241, 225, 146); /* keep */
+  --colour-primary-10: rgb(89, 77, 70); /* keep */
   --colour-primary-20: rgb(68, 59, 54); /* keep */
   --colour-primary-50: rgba(183, 175, 171, 0.11); /* keep */
   --colour-primary-100: rgb(220, 203, 255);
