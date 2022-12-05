@@ -10,7 +10,6 @@
 .product-item {
   text-align: center;
   background-color: var(--colour-grey-600);
-  background: linear-gradient(to bottom, rgb(255, 240, 158), rgb(89, 59, 9));
   border-radius: var(--border-radius-medium);
   /* make sure rounded corners show when flush to containing box */
   overflow: hidden;
